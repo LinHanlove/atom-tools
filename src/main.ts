@@ -1,7 +1,7 @@
-import "./style.css";
-import typescriptLogo from "./typescript.svg";
+import './style.css'
+import typescriptLogo from './typescript.svg'
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <a href="https://vite.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
@@ -17,4 +17,4 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
       Click on the Vite and TypeScript logos to learn more
     </p>
   </div>
-`;
+`

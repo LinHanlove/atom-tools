@@ -8,9 +8,9 @@
  */
 export const sleep = (duration: number | undefined) => {
   return new Promise((resolve) => {
-    setTimeout(resolve, duration);
-  });
-};
+    setTimeout(resolve, duration)
+  })
+}
 
 /**
  * @function 深度克隆一个值。
@@ -21,8 +21,8 @@ export const sleep = (duration: number | undefined) => {
  * @returns {*} 深度克隆后的值。
  */
 export const cloneDeep = (value: unknown) => {
-  return JSON.parse(JSON.stringify(value));
-};
+  return JSON.parse(JSON.stringify(value))
+}
 
 /**
  * @function 创建一个节流函数，确保函数在指定的时间间隔内最多执行一次。
@@ -31,46 +31,42 @@ export const cloneDeep = (value: unknown) => {
  * @param {boolean} immediate - 可选，是否立即执行函数。默认为 false。
  * @returns {Function} - 节流后的函数。
  */
-export const throttle = (
-  func: Function,
-  limit: number,
-  immediate?: boolean
-): Function => {
-  if (typeof limit !== "number" || limit <= 0) {
-    throw new Error("throttle function expects a positive number as the limit");
+export const throttle = (func: Function, limit: number, immediate?: boolean): Function => {
+  if (typeof limit !== 'number' || limit <= 0) {
+    throw new Error('throttle function expects a positive number as the limit')
   }
 
-  let timeout: NodeJS.Timeout | null = null;
-  let lastExecution: number = 0;
-  let inThrottle: boolean = false;
+  let timeout: NodeJS.Timeout | null = null
+  let lastExecution: number = 0
+  let inThrottle: boolean = false
 
   return function (this: ThisParameterType<typeof func>, ...args: any[]): void {
-    const context = this;
-    const now: number = Date.now();
+    const context = this
+    const now: number = Date.now()
 
     if (immediate && !inThrottle) {
       // 如果立即执行且当前不在节流状态，则立即执行函数
-      func.apply(context, args);
-      inThrottle = true;
-      lastExecution = now;
+      func.apply(context, args)
+      inThrottle = true
+      lastExecution = now
     } else if (now - lastExecution >= limit) {
       // 如果不是立即执行，或者已经执行过且时间间隔已到，则执行函数
-      func.apply(context, args);
-      inThrottle = true;
-      lastExecution = now;
+      func.apply(context, args)
+      inThrottle = true
+      lastExecution = now
     }
 
     // 清除之前的定时器
     if (timeout !== null) {
-      clearTimeout(timeout);
+      clearTimeout(timeout)
     }
 
     // 设置新的定时器，以便在节流时间过后重置状态
     timeout = setTimeout(() => {
-      inThrottle = false;
-    }, limit);
-  };
-};
+      inThrottle = false
+    }, limit)
+  }
+}
 
 /**
  * @function 创建一个防抖函数，确保函数在指定的时间间隔结束后才执行。
@@ -79,62 +75,56 @@ export const throttle = (
  * @param {boolean} immediate - 可选，是否立即执行函数。默认为 false。
  * @returns {Function} - 防抖后的函数。
  */
-export const debounce = (
-  func: Function,
-  wait: number,
-  immediate?: boolean
-): Function => {
-  let timeout: NodeJS.Timeout | null;
+export const debounce = (func: Function, wait: number, immediate?: boolean): Function => {
+  let timeout: NodeJS.Timeout | null
 
   return function (this: ThisParameterType<typeof func>, ...args: any[]) {
     // 保存当前的 this 上下文和参数
-    const context = this;
+    const context = this
 
     // 清除之前的定时器
     if (timeout !== null) {
-      clearTimeout(timeout);
+      clearTimeout(timeout)
     }
 
     // 设置新的定时器
     timeout = setTimeout(() => {
       // 如果 immediate 参数为 false，则在等待时间结束后执行函数
       if (!immediate) {
-        func.apply(context, args);
+        func.apply(context, args)
       }
-    }, wait);
+    }, wait)
 
     // 如果 immediate 参数为 true，则立即执行函数
     if (immediate) {
-      const callNow = !timeout;
+      const callNow = !timeout
       timeout = setTimeout(() => {
-        timeout = null;
-      }, wait);
+        timeout = null
+      }, wait)
 
       if (callNow) {
-        func.apply(context, args);
+        func.apply(context, args)
       }
     }
-  };
-};
+  }
+}
 
 /**
  * @function 创建一个单例模式，确保某个类只有一个实例。
  * @param className 需要单例的类
  * @returns 单例的类
  */
-export const sington = <T extends new (...args: any[]) => any>(
-  className: T
-): T => {
-  let ins: InstanceType<T>;
+export const sington = <T extends new (...args: any[]) => any>(className: T): T => {
+  let ins: InstanceType<T>
   const proxy = new Proxy(className, {
     construct(target, args) {
       if (!ins) {
-        ins = Reflect.construct(target, args);
+        ins = Reflect.construct(target, args)
       }
-      return ins;
-    },
-  });
-  return proxy;
-};
+      return ins
+    }
+  })
+  return proxy
+}
 
-export * from "@/HighOrderFunction/KeepLoop";
+export * from '@/HighOrderFunction/KeepLoop'
