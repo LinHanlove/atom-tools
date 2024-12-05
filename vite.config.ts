@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
-// https://github.com/originjs/vite-plugin-dts
 import dts from "vite-plugin-dts";
 
 export default defineConfig({

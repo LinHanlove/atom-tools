@@ -13,7 +13,8 @@
     "atom",
     "vueUse",
     "vue-hooks",
-    "atom-tools"
+    "atom-tools",
+    "atom-module-tools"
   ],
   "homepage": "https://tools.atomnotion.com/",
   "repository": {
