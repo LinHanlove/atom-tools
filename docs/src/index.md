@@ -3,16 +3,17 @@ layout: home
 
 hero:
   name: 'atom-tools'
-  text: '快捷的Javascript工具库'
+  text: '快捷的Javascript'
+  textsuffix: '工具库'
   tagline: A fast, powerful, and out of the box TypeScript tool library
   image: image/logo.png
   actions:
     - theme: brand
       text: 快速开始
-      link: /utils/guide/guide
+      link: /view/Guide/guide
     - theme: alt
       text: 示例
-      link: /utils/guide/use
+      link: /view/Guide/use
 
 features:
   - title: 🚀 Simplicity First
@@ -24,3 +25,4 @@ features:
 
     footer: MIT Licensed | Copyright © atom-tools
 ---
+<Home />
