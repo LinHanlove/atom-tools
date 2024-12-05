@@ -1,0 +1,53 @@
+/* 该文件配置网站的文字  图标 等等 一系列dom元素的样式文件 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --base-color: #008080;
+
+  /* 通过配置 自定义颜色 */
+  --vp-home-hero-name-color: transparent;
+  /* 主页标题文字的颜色  */
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe 30%, var(--base-color));
+  /* 主页左侧背景添加渐变光圈 */
+  --vp-home-hero-image-background-image: linear-gradient(25deg, #8765ba, #888bc6, #83afd1, #77d4dc);
+  --vp-home-hero-image-filter: blur(100px);
+
+  /* 主题基色 */
+  --vp-c-brand: #008080;
+  /* 白色模式 主题基色 */
+  --vp-c-brand-light: #008080;
+  /* 黑色模式 主题基色 */
+  --vp-c-brand-dark: #008080;
+  /* 侧边栏 */
+  --vp-sidebar-width: 270px;
+  /* 内容区 */
+  --lh-content-width: calc(100vw - 270px);
+
+  /* 按钮背景颜色 */
+  .image-src {
+    width: 300px;
+    height: 300px;
+  }
+
+  ::-webkit-scrollbar {
+    background-color: rgba(73, 177, 245, 0.2);
+    width: 4px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--vp-c-brand-1);
+    background-image: linear-gradient(
+      45deg,
+      hsla(0, 0%, 100%, 0.4) 25%,
+      transparent 0,
+      transparent 50%,
+      hsla(0, 0%, 100%, 0.4) 0,
+      hsla(0, 0%, 100%, 0.4) 75%,
+      transparent 0,
+      transparent
+    );
+    border-radius: 1em;
+  }
+}
