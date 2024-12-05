@@ -41,11 +41,11 @@ git commit -am "Add some feature or fix a bug"
 
 #### 注意点：
 
-![拉取请求流程](../public/image/contribution.png)
+![拉取请求流程](../../../public/image/contribution.png)
 
 #### 示范：
 
-![示范](../public/image/contribution-really.png)
+![示范](../../public/image/contribution-really.png)
 
 ## 联系我们
 
