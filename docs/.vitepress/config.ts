@@ -1,30 +1,28 @@
-import { defineConfig } from "vitepress";
-import nav from "../src/layout/nav";
-import sidebar from "../src/layout/sidebar";
+import { defineConfig } from 'vitepress'
+import nav from '../src/layout/nav'
+import sidebar from '../src/layout/sidebar'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "atom-tools",
-  description: "atom-tools",
-  srcDir: "src",
-  head: [["link", { rel: "icon", href: "/image/atom-logo.jpg" }]],
+  title: 'atom-tools',
+  description: 'atom-tools',
+  srcDir: 'src',
+  head: [['link', { rel: 'icon', href: '/image/atom-logo.jpg' }]],
   themeConfig: {
-    logo: "/image/logo.png",
+    logo: '/image/logo.png',
     // https://vitepress.dev/reference/default-theme-config
     nav: nav,
     sidebar: sidebar,
-    socialLinks: [
-      { icon: "github", link: "https://github.com/LinHanlove/atom-tools" },
-    ],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/LinHanlove/atom-tools' }],
     search: {
-      provider: "local",
+      provider: 'local'
     },
     lastUpdated: {
-      text: "Updated at",
+      text: 'Updated at',
       formatOptions: {
-        dateStyle: "full",
-        timeStyle: "medium",
-      },
-    },
-  },
-});
+        dateStyle: 'full',
+        timeStyle: 'medium'
+      }
+    }
+  }
+})

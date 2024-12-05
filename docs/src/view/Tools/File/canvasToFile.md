@@ -12,15 +12,15 @@ title: canvasToFile
 
 ## 参数
 
-| 参数   | 说明         | 类型     | 默认值      |
-| ------ | ------------ | -------- | ----------- |
-| canvas | 画布元素     | `HTMLCanvasElement` | - |
-| type   | 文件的MIME类型 | `string` | - |
-| quality | 文件质量（0-100） | `number` | - |
+| 参数    | 说明              | 类型                | 默认值 |
+| ------- | ----------------- | ------------------- | ------ |
+| canvas  | 画布元素          | `HTMLCanvasElement` | -      |
+| type    | 文件的MIME类型    | `string`            | -      |
+| quality | 文件质量（0-100） | `number`            | -      |
 
 ## 返回值
 
-`Promise<Blob|null>` 
+`Promise<Blob|null>`
 
 ## 代码演示
 

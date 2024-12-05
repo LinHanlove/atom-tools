@@ -20,17 +20,13 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
-     /* 路径别名 */
+    /* 路径别名 */
     "baseUrl": ".",
     "paths": {
       "@/*": ["./lib/*"],
       "@/docs/*": ["./docs/src/*"]
-    },
+    }
   },
-  "include": [
-    "src",
-    "docs",
-    "lib"
-  ],
+  "include": ["src", "docs", "lib"],
   "exclude": ["node_modules", "dist", "build"]
 }

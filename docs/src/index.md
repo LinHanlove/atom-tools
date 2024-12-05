@@ -25,4 +25,5 @@ features:
 
     footer: MIT Licensed | Copyright © atom-tools
 ---
+
 <Home />
