@@ -58,15 +58,15 @@ export default {
       items: [
         {
           text: '指南',
-          link: '/view/guide/guide.md'
+          link: '/view/Guide/guide.md'
         },
         {
           text: '快速上手',
-          link: '/view/guide/use.md'
+          link: '/view/Guide/use.md'
         },
         {
           text: '目录结构',
-          link: '/view/guide/directory.md'
+          link: '/view/Guide/directory.md'
         }
       ]
     },
