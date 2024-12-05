@@ -1,49 +1,49 @@
 {
-  "hash": "1f6d7fa9",
+  "hash": "7da54ec2",
   "configHash": "d9aebd06",
-  "lockfileHash": "d2247c72",
-  "browserHash": "5e9d015f",
+  "lockfileHash": "05cb4bcb",
+  "browserHash": "f846f022",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.5.13_typescript@5.7.2/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "a0074299",
+      "fileHash": "d10beec8",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/.pnpm/@vue+devtools-api@7.6.7/node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "1024a915",
+      "fileHash": "e1e2eb97",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/.pnpm/@vueuse+core@11.3.0_vue@3.5.13_typescript@5.7.2_/node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "139dce15",
+      "fileHash": "82f98362",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/.pnpm/@vueuse+integrations@11.3.0_focus-trap@7.6.2_vue@3.5.13_typescript@5.7.2_/node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "5abaca43",
+      "fileHash": "6dffcabe",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/.pnpm/mark.js@8.11.1/node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "6c49ebfa",
+      "fileHash": "9735d7f8",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/.pnpm/minisearch@7.1.1/node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "cec32b6e",
+      "fileHash": "c6667c90",
       "needsInterop": false
     },
     "@theojs/lumen": {
       "src": "../../../../node_modules/.pnpm/@theojs+lumen@5.0.0/node_modules/@theojs/lumen/types/index.ts",
       "file": "@theojs_lumen.js",
-      "fileHash": "0b0b6872",
+      "fileHash": "940ba639",
       "needsInterop": false
     }
   },
