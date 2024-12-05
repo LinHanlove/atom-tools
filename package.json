@@ -19,13 +19,12 @@
   "homepage": "https://tools.atomnotion.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LinHanlove/atom-tools"
+    "url": "git+https://github.com/LinHanlove/atom-tools.git"
   },
   "bugs": {
     "email": "2188817393@qq.com"
   },
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "engines": {
     "node": "^18.0.0 || >=20.0.0"
   },
