@@ -12,9 +12,9 @@ title: createFileFromBlob
 
 ## 参数
 
-| 参数   | 说明     | 类型     |
-| ------ | -------- | -------- |
-| blob   | Blob对象 | `Blob`   |
+| 参数     | 说明     | 类型     |
+| -------- | -------- | -------- |
+| blob     | Blob对象 | `Blob`   |
 | filename | 文件名   | `string` |
 
 ## 返回值

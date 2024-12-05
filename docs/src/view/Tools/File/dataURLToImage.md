@@ -12,13 +12,13 @@ title: dataURLToImage
 
 ## 参数
 
-| 参数   | 说明     | 类型     |
-| ------ | -------- | -------- |
+| 参数    | 说明          | 类型     |
+| ------- | ------------- | -------- |
 | dataURL | 数据URL字符串 | `string` |
 
 ## 返回值
 
-`Promise<HTMLImageElement>` 
+`Promise<HTMLImageElement>`
 
 ## 代码演示
 

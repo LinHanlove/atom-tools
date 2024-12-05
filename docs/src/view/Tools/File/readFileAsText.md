@@ -18,7 +18,7 @@ title: readFileAsText
 
 ## 返回值
 
-`Promise<string>` 
+`Promise<string>`
 
 ## 代码演示
 
@@ -34,5 +34,4 @@ async function readFileContent() {
 }
 
 readFileContent()
-
 ```

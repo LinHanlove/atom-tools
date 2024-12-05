@@ -80,6 +80,7 @@ const person = {
 const selectedFields = pick(person, ['name', 'age'])
 console.log(selectedFields) // 输出：{ name: 'John Doe', age: 30 }
 ```
+
 **vue自定义指令**
 
 ```vue

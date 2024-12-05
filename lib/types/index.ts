@@ -1,1 +1,1 @@
-export type * from "./global.d.ts";
+export type * from './global.d.ts'

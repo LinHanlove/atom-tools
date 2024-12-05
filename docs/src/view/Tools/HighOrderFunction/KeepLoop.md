@@ -12,9 +12,9 @@ title: KeepLoop 定时轮询
 
 ### 参数
 
-| 参数        | 描述                         | 类型                   | 默认值    |
-| ----------- | ---------------------------- | ---------------------- | --------- |
-| option      | 包含轮询设置的配置对象       | `TYPE.IKeepLoopOption` | ---       |
+| 参数   | 描述                   | 类型                   | 默认值 |
+| ------ | ---------------------- | ---------------------- | ------ |
+| option | 包含轮询设置的配置对象 | `TYPE.IKeepLoopOption` | ---    |
 
 ### 返回值
 
@@ -23,6 +23,7 @@ title: KeepLoop 定时轮询
 ## 类型定义
 
 - `TYPE.IKeepLoopOption` 接口包括以下属性：
+
   - `run`: **必选**. 每次轮询调用的函数。
   - `interval`: **必选**. 轮询之间的时间间隔，单位为毫秒，默认1000。
   - `maxCount`: **可选**. 最大轮询次数；如果为0或未指定，则轮询无限进行，默认0。
@@ -54,48 +55,49 @@ title: KeepLoop 定时轮询
 </template>
 
 <script setup>
-import { KeepLoop, log } from 'atom-tools';
-import { ref } from 'vue';
+import { KeepLoop, log } from 'atom-tools'
+import { ref } from 'vue'
 
 // 定义轮询函数
 const loopFunc = (res) => {
-  console.log(`轮询次数: ${res.currentCount}`);
-};
+  console.log(`轮询次数: ${res.currentCount}`)
+}
 
 // 创建 KeepLoop 实例
-const keepLoop = ref(null);
+const keepLoop = ref(null)
 
 const startLoop = () => {
   if (!keepLoop.value) {
     keepLoop.value = new KeepLoop({
       run: loopFunc,
-      interval: 1000, // 设置轮询间隔为 1 秒
-    });
+      interval: 1000 // 设置轮询间隔为 1 秒
+    })
   }
-  keepLoop.value.start();
-};
+  keepLoop.value.start()
+}
 
 const pauseLoop = () => {
   if (keepLoop.value) {
-    keepLoop.value.pause();
+    keepLoop.value.pause()
   }
-};
+}
 
 const resumeLoop = () => {
   if (keepLoop.value) {
-    keepLoop.value.resume();
+    keepLoop.value.resume()
   }
-};
+}
 
 const stopLoop = () => {
   if (keepLoop.value) {
-    keepLoop.value.stop();
+    keepLoop.value.stop()
   }
-};
+}
 </script>
 ```
 
 ### 注意事项
+
 - 请确保在组件销毁时调用 stop 方法以停止轮询，防止内存泄漏。
 - 根据实际的业务逻辑，您可能需要对 loopFunc 函数返回的结果进行处理。
 - 使用 pause 和 resume 方法可以暂停和继续轮询，这对于节省资源或响应用户操作非常有用。
