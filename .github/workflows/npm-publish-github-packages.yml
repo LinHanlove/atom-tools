@@ -73,6 +73,6 @@ jobs:
           git add .
           git commit -m "Publish version ${GITHUB_REF#refs/tags/v}"
       - name: 🚀 Publish package to npm
-        run: npm adduser pnpm publish --no-git-checks
+        run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.ATOM_TOOLS_TOKEN }}
