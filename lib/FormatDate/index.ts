@@ -1,6 +1,17 @@
 import * as CONSTANT from './constant'
 import { isNaN } from '../TypeCheck'
-import { TYPE } from '@/types'
+
+/**
+ * @interface 日期信息
+ */
+export interface DateInfo {
+  yyyy: string
+  MM: string
+  dd: string
+  HH: string
+  mm: string
+  ss: string
+}
 
 /**
  * @function 将传入的值转换为日期对象，如果无法转换则抛出错误。
@@ -95,7 +106,7 @@ export const getTwoDaysApart = (
  * @param formatter 可以是日期格式化的字符串描述，或者是一个格式化函数
  * @returns 返回一个格式化函数
  */
-const formatNormalize = (formatter: string | ((dateInfo: TYPE.IDateInfo) => string)) => {
+const formatNormalize = (formatter: string | ((dateInfo: DateInfo) => string)) => {
   // 如果传入的是一个函数，则直接返回该函数
   if (typeof formatter === 'function') return formatter
 
