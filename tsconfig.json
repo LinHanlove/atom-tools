@@ -6,8 +6,8 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
 
-    /* bundler mode */
-    "moduleResolution": "bundler",
+    /* Node mode */
+    "moduleResolution": "Node",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
@@ -21,7 +21,7 @@
     "noUncheckedSideEffectImports": true,
 
     /* 路径别名 */
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./lib/*"],
       "@/docs/*": ["./docs/src/*"]
