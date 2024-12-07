@@ -60,19 +60,19 @@ jobs:
           git status --porcelain
           git diff --exit-code
 
-      - name: 🛠️ Authenticate with npm
-        run: npm adduser
-      - name: 🌼 Set package version
-        run: npm version --no-git-tag-version ${GITHUB_REF#refs/tags/v}
       - name: 🏗️ Install package
         run: pnpm install
       - name: 🚀 Build package
-        run: pnpm run build
+        run: pnpm build
       - name: 🛠️ Commit changes
         run: |
           git add .
           git commit -m "Publish version ${GITHUB_REF#refs/tags/v}"
+      - name: 🛠️ Authenticate with npm
+        run: npm adduser
+      - name: 🌼 Set package version
+        run: npm version --no-git-tag-version ${GITHUB_REF#refs/tags/v}
       - name: 🚀 Publish package to npm
-        run: npm adduser && npm publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.ATOM_TOOLS_TOKEN }}
