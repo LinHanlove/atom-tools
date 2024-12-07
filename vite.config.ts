@@ -34,7 +34,7 @@ export default defineConfig({
   },
   plugins: [
     dts({
-      include: ['lib/**/*.d.ts'],
+      include: ['lib/**/*'],
       copyDtsFiles: true, // 自动把目录下的所有d.ts文件复制到dist文件夹
       outDir: 'dist/types' // 指定输出类型声明文件的目录
     })
