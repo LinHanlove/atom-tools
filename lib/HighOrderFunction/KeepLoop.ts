@@ -1,12 +1,27 @@
-import { TYPE } from '@/types'
 import { log } from '../main'
+
+/**
+ * @type KeepLoopOption 参数列表
+ */
+export interface KeepLoopOption {
+  run: (returnInfo: ReturnInfo) => ReturnInfo // 需要轮询的函数
+  interval: number // 轮询时间间隔，必须大于0
+  maxCount?: number // 最大轮询次数，传 0 || 不传 表示无限轮询
+}
+
+/**
+ * @type ReturnInfo 返回信息
+ */
+export interface ReturnInfo {
+  currentCount: number
+}
 
 /**
  *@class 定时轮询的类
  */
 export class KeepLoop {
   // 参数列表
-  option: TYPE.IKeepLoopOption
+  option: KeepLoopOption
 
   // 定时器
   private timer: NodeJS.Timeout | null = null
@@ -17,12 +32,12 @@ export class KeepLoop {
   // 控制轮询是否暂停
   private isPaused: boolean = false
 
-  constructor(option: TYPE.IKeepLoopOption) {
+  constructor(option: KeepLoopOption) {
     this.option = this.init(option)
   }
 
   // 初始化参数
-  private init(option: TYPE.IKeepLoopOption): TYPE.IKeepLoopOption {
+  private init(option: KeepLoopOption): KeepLoopOption {
     if (typeof option.run !== 'function') {
       throw new Error('The "run" option must be a function.')
     }
@@ -112,7 +127,7 @@ export class KeepLoop {
       this.count++
 
       // 定义返回参数
-      const returnInfo: TYPE.IReturnInfo = {
+      const returnInfo: ReturnInfo = {
         currentCount: this.count
       }
 

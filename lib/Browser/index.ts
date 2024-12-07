@@ -1,4 +1,22 @@
-import { TYPE } from '@/types'
+/**
+ * @interface 全屏
+ */
+export interface FullScreenAbleHTMLElement {
+  mozRequestFullScreen?: () => Promise<void> | undefined
+  webkitRequestFullscreen?: (options?: FullscreenOptions) => Promise<void> | undefined
+  msRequestFullscreen?: () => Promise<void> | undefined
+  requestFullscreen?: (options?: FullscreenOptions) => Promise<void> | undefined
+}
+
+/**
+ * @interface 退出全屏
+ */
+export interface ExitFullScreenAbleHTMLElement {
+  mozCancelFullScreen?: () => void
+  webkitExitFullscreen?: () => Promise<void>
+  msExitFullscreen?: () => void
+  exitFullscreen?: () => Promise<void>
+}
 /**
  * @function 一键复制
  * @param value 要复制的文本
@@ -49,7 +67,7 @@ export const rgbGray = (rgb: string[] | string) => {
  * @returns 参数对象
  */
 export const getUrlParams = (url: string, key?: string) => {
-  const params = {} as TYPE.anyType
+  const params = {} as any
   url.replace(/[?&]+([^=&]+)=([^&]*)/gi, (_, key, value) => (params[key] = value))
   if (key && !params[key]) {
     throw new Error(`Parameter ${key} not found in URL.`)
@@ -81,7 +99,7 @@ export const removeElementMark = (str: string) => {
  * @function 全屏
  */
 export const toFullScreen = (): void => {
-  const element = document.documentElement as TYPE.IFullScreenAbleHTMLElement
+  const element = document.documentElement as FullScreenAbleHTMLElement
   const requestFullScreenMethod =
     element.requestFullscreen ||
     element.mozRequestFullScreen ||
@@ -99,7 +117,7 @@ export const toFullScreen = (): void => {
  * @function 退出全屏
  */
 export const exitFullScreen = (): void => {
-  const document = window.document as TYPE.IExitFullScreenAbleHTMLElement
+  const document = window.document as ExitFullScreenAbleHTMLElement
   const exitFullScreenMethod =
     document.exitFullscreen ||
     document.mozCancelFullScreen ||

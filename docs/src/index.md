@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: 'atom-tools'
-  text: '快捷的Javascript'
-  textsuffix: '工具库'
+  text: 'A quick '
+  textsuffix: 'JavaScript utility library.'
   tagline: A fast, powerful, and out of the box TypeScript tool library
   image: image/logo.png
   actions:
