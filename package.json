@@ -24,7 +24,7 @@
   "bugs": {
     "email": "2188817393@qq.com"
   },
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "node": "^18.0.0 || >=20.0.0"
   },
