@@ -68,6 +68,7 @@ jobs:
         run: |
           git add .
           git commit -m "Publish version ${GITHUB_REF#refs/tags/v}"
+          echo ${GITHUB_REF}
       - name: Authenticate with npm
         run: npm adduser
       - name: Set package version
