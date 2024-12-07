@@ -9,15 +9,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 🔄 Checkout
+      - name: Checkout
         uses: actions/checkout@v4
-      - name: 🚀 Setup Node
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: 📦 Install pnpm
+      - name: Install pnpm
         run: npm install -g pnpm
-      - name: 📚 Cache dependencies
+      - name: Cache dependencies
         uses: actions/cache@v2
         with:
           path: ~/.pnpm-store
@@ -32,47 +32,47 @@ jobs:
       contents: read
       packages: write
     steps:
-      - name: 📦 Install pnpm
+      - name: Authenticate with npm
+        run: npm adduser
+      - name: Install pnpm
         run: npm install -g pnpm
-      - name: Set up Git
+      - name: Setup Node
         run: |
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git config --global user.name "${GITHUB_ACTOR}"
-      - name: 🔄 Checkout
+      - name: Checkout
         uses: actions/checkout@v4
-      - name: 🚀 Setup Node
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          registry-url: https://npm.pkg.github.com/
-      - name: 📚 Cache dependencies
+          registry-url: https://npm.pkg.github.com
+      - name: Cache dependencies
         uses: actions/cache@v2
         with:
           path: ~/.pnpm-store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-
-      - name: 🛠️ Configure npm authentication
+      - name: Configure npm authentication
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ATOM_TOOLS_TOKEN }}" > ~/.npmrc
-
-      - name: 🛡️ Check for uncommitted changes
+      - name: Check for uncommitted changes
         run: |
           git status --porcelain
           git diff --exit-code
-
-      - name: 🏗️ Install package
+      - name: Install package
         run: pnpm install
-      - name: 🚀 Build package
-        run: pnpm build
-      - name: 🛠️ Commit changes
+      - name: Build package
+        run: pnpm run build
+      - name: Commit changes
         run: |
           git add .
           git commit -m "Publish version ${GITHUB_REF#refs/tags/v}"
-      - name: 🛠️ Authenticate with npm
+      - name: Authenticate with npm
         run: npm adduser
-      - name: 🌼 Set package version
+      - name: Set package version
         run: npm version --no-git-tag-version ${GITHUB_REF#refs/tags/v}
-      - name: 🚀 Publish package to npm
+      - name: Publish package to npm
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.ATOM_TOOLS_TOKEN }}
