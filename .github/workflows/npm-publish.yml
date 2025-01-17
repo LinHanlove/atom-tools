@@ -43,6 +43,9 @@ jobs:
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.ATOM_TOOLS_TOKEN }}" > ~/.npmrc
 
+      - name: Check npm registry
+        run: npm config get registry
+
       - run: pnpm install
       - run: pnpm publish --no-git-checks
         env:
