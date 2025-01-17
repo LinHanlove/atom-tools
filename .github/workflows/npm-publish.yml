@@ -24,14 +24,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Debug version
-        run: |
-          echo "GITHUB_REF: $GITHUB_REF"
-          echo "Version to set: ${GITHUB_REF#refs/tags/v}"
-          echo "Current version: $(node -p "require('./package.json').version")"
 
-      - name: Update version
-        run: npm version --no-git-tag-version ${GITHUB_REF#refs/tags/v} --allow-same-version
+      # 添加配置 git 用户信息的步骤
+      - name: Configure Git
+        run: |
+          git config --global user.email "2188817393@qq.com"
+          git config --global user.name "LinHanlove"
+
+      # 修改版本更新步骤
+      - name: Update package version
+        run: |
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          NEW_VERSION=${GITHUB_REF#refs/tags/v}
+          echo "Current version: $CURRENT_VERSION"
+          echo "New version: $NEW_VERSION"
+          if [ "$CURRENT_VERSION" != "$NEW_VERSION" ]; then
+            npm version $NEW_VERSION --no-git-tag-version --allow-same-version
+          fi
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
