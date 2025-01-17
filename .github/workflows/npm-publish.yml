@@ -23,7 +23,15 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
+      - name: Debug version
+        run: |
+          echo "GITHUB_REF: $GITHUB_REF"
+          echo "Version to set: ${GITHUB_REF#refs/tags/v}"
+          echo "Current version: $(node -p "require('./package.json').version")"
+
+      - name: Update version
+        run: npm version --no-git-tag-version ${GITHUB_REF#refs/tags/v} --allow-same-version
       - uses: actions/setup-node@v4
         with:
           node-version: 20
