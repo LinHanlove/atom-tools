@@ -16,8 +16,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
-      - run: npm test
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - run: pnpm install
+      - run: pnpm test
 
   publish-npm:
     needs: build
@@ -25,28 +28,22 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # 添加配置 git 用户信息的步骤
-      - name: Configure Git
-        run: |
-          git config --global user.email "2188817393@qq.com"
-          git config --global user.name "LinHanlove"
-
-      # 修改版本更新步骤
-      - name: Update package version
-        run: |
-          CURRENT_VERSION=$(node -p "require('./package.json').version")
-          NEW_VERSION=${GITHUB_REF#refs/tags/v}
-          echo "Current version: $CURRENT_VERSION"
-          echo "New version: $NEW_VERSION"
-          if [ "$CURRENT_VERSION" != "$NEW_VERSION" ]; then
-            npm version $NEW_VERSION --no-git-tag-version --allow-same-version
-          fi
+      # 设置 pnpm
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish
+
+      # 配置 npm 认证
+      - name: Setup npm auth
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.ATOM_TOOLS_TOKEN }}" > ~/.npmrc
+
+      - run: pnpm install
+      - run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.ATOM_TOOLS_TOKEN}}
